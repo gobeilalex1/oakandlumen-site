@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Custom merch and bulk goods for US businesses. One delivered price, duties included.">
+<meta property="og:title" content="Oak &amp; Lumen"><meta property="og:description" content="Custom merch and bulk goods, made at the factory and delivered to your door.">
+<meta property="og:image" content="https://oakandlumen.com/img/p/cap-white.jpg"><meta property="og:url" content="https://oakandlumen.com/">
+<link rel="icon" href="favicon.png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<title>Oak &amp; Lumen</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap">
+<style>
+/* Layout: full homepage on one melted texture of walnut, steel and ink under a saffron light. The catalog is a shelf per category with a sticky jump bar, and searching or filtering swaps the shelves for one results grid. Single deliberate dark theme. */
+:root { color-scheme:dark; --accent:#ffd35c; --on-accent:#0d0d12; --gut:max(20px,env(safe-area-inset-left,0px));
+  --panel:rgba(255,255,255,.055); --panel-2:rgba(255,255,255,.095); --text:#f7f4ef; --mut:#cbc8c3; --line:rgba(255,255,255,.15); --veil:rgba(12,12,16,.82);
+  --t1w:url(img/h/wide/blend.jpg); --t1t:url(img/h/tall/blend.jpg); --t2w:url(img/h/wide/blend2.jpg); --t2t:url(img/h/tall/blend2.jpg); --t3w:url(img/h/wide/blend.jpg); --t3t:url(img/h/tall/blend.jpg);
+  --g1:#100c0d; --g2:#121319; --g3:#0a0c16; }
+*{box-sizing:border-box} html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{margin:0;background:var(--g3);color:var(--text);font:17px/1.55 "Manrope",Arial,sans-serif;transition:background-color .3s}
+img{display:block;max-width:100%} a{color:inherit;text-decoration:none} ul,ol{list-style:none;margin:0;padding:0} h1,h2,h3,p{margin:0}
+.wrap{width:100%;max-width:1280px;margin-inline:auto;padding-inline:var(--gut)}
+.lit{position:relative;isolation:isolate;background-size:cover;background-position:right bottom}
+.hero{background-color:var(--g1);background-image:var(--t1w);--fb:var(--g1)} .band{background-color:var(--g2);background-image:linear-gradient(90deg,rgba(8,8,10,.6),rgba(8,8,10,.08) 68%),var(--t2w);background-position:center 42%;--ft:var(--g1);--fb:var(--g2)} .quote{background-color:var(--g3);background-image:var(--t3w);--ft:var(--g3);--fb:var(--g3)}
+.lit::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(var(--ft,transparent),transparent 13%,transparent 87%,var(--fb,transparent))}
+.lit::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.3;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+@media(max-width:700px){.hero{background-image:var(--t1t)} .band{background-image:linear-gradient(rgba(8,8,10,.5),rgba(8,8,10,.5)),var(--t2t)} .quote{background-image:var(--t3t)}}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 30px;border:0;border-radius:999px;background:var(--accent);color:var(--on-accent);font:800 16.5px/1 "Manrope",Arial,sans-serif;white-space:nowrap;cursor:pointer;transition:transform .15s,filter .15s}
+.btn:hover{filter:brightness(1.07);transform:translateY(-1px)} .btn:active{transform:translateY(0)}
+.btn-sm{min-height:44px;padding:0 20px;font-size:14.5px}
+.btn-line{background:rgba(10,8,8,.5);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.34);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.kick{font-size:14px;font-weight:700;letter-spacing:.01em;color:var(--accent)}
+.h2{font-weight:800;font-size:clamp(36px,5vw,64px);line-height:1.02;letter-spacing:-.04em;text-wrap:balance}
+.hero{min-height:min(94svh,880px);display:grid;grid-template-rows:1fr auto;padding-top:72px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:22px}
+.word{font-weight:800;font-size:24px;letter-spacing:-.035em;white-space:nowrap}
+.nav{display:flex;align-items:center;gap:30px;font-size:15px;font-weight:700} .nav a:not(.btn):hover{color:var(--accent)}
+@media(max-width:760px){.nav a:not(.btn){display:none}}
+.hero-c{display:grid;gap:20px;align-content:center;padding-block:28px 40px}
+.hero h1{font-weight:800;font-size:clamp(50px,7.6vw,108px);line-height:.98;letter-spacing:-.05em;max-width:11.5ch}
+.hero .lead{font-size:clamp(18px,1.6vw,21px);font-weight:500;max-width:42ch}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.prom{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;border-radius:16px;overflow:hidden;margin-bottom:28px;background:rgba(255,255,255,.22);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
+.prom li{padding:18px 20px;font-weight:700;font-size:15.5px;background:rgba(10,8,8,.42)}
+@media(max-width:760px){.prom{grid-template-columns:repeat(2,minmax(0,1fr))}.prom li{padding:14px 14px;font-size:14px}}
+.bar{position:sticky;top:0;z-index:15;height:72px;margin-bottom:-72px;display:flex;align-items:center;background:rgba(10,10,13,.6);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:0 1px 0 rgba(255,255,255,.09)}
+.bar .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.badge{display:inline-grid;place-items:center;min-width:22px;height:22px;margin-left:8px;padding:0 6px;border-radius:999px;background:var(--on-accent);color:var(--accent);font-size:13px}
+.tools{display:grid;gap:12px;margin-bottom:10px}
+.search{position:relative} .search>svg{position:absolute;left:18px;top:50%;transform:translateY(-50%);width:20px;height:20px;color:var(--mut);pointer-events:none}
+input#q{min-height:60px;padding:0 54px 0 50px;border-radius:14px;font-size:17px}
+.search input::-webkit-search-cancel-button{display:none}
+.xbtn{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:44px;height:44px;border:0;border-radius:10px;background:transparent;color:var(--mut);font-size:22px;cursor:pointer}
+.facet{display:flex;align-items:center;gap:12px;min-width:0}
+.facet>span{flex:none;width:68px;font-size:14px;font-weight:700;color:var(--mut)}
+.row{display:flex;gap:8px;min-width:0;flex:1;padding:2px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent)} .row::-webkit-scrollbar{display:none}
+@media(min-width:900px){.row{flex-wrap:wrap;overflow:visible;-webkit-mask-image:none;mask-image:none}}
+.pill{flex:none;min-height:44px;padding:0 15px;border:0;border-radius:999px;background:rgba(255,255,255,.08);box-shadow:inset 0 0 0 1px var(--line);color:var(--text);font:700 14.5px/1 "Manrope",Arial,sans-serif;white-space:nowrap;cursor:pointer}
+.pill small{margin-left:7px;font-size:13px;font-weight:600;opacity:.72} .pill:hover:not(:disabled){background:rgba(255,255,255,.14)} .pill[aria-pressed=true],.pill[aria-pressed=true]:hover{background:var(--accent);color:var(--on-accent)} .pill:disabled{opacity:.38;cursor:default}
+.status{display:flex;flex-wrap:wrap;align-items:center;gap:8px;min-height:48px;margin-bottom:12px} #count{font-weight:800;margin-right:8px} #applied{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.tagx{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 12px 0 14px;border:0;border-radius:10px;background:var(--panel-2);box-shadow:inset 0 0 0 1px var(--line);color:var(--text);font:700 14px/1 "Manrope",Arial,sans-serif;cursor:pointer} .tagx span{font-size:18px;color:var(--accent)}
+.clear,.rm{border:0;background:transparent;color:var(--accent);font:700 14px/1 "Manrope",Arial,sans-serif;cursor:pointer;text-decoration:underline;text-underline-offset:3px} .clear{min-height:44px;padding:0 8px} .rm{padding:8px 0;min-height:32px;justify-self:start}
+#grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr))} @media(max-width:560px){#grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}
+.card{display:grid;grid-template-rows:1fr auto;gap:10px;padding:10px;border-radius:18px;background:var(--panel);box-shadow:inset 0 0 0 1px var(--line);transition:background-color .18s} .card:hover{background:var(--panel-2)}
+.open{display:grid;grid-template-rows:auto 1fr;gap:12px;width:100%;padding:0;border:0;background:transparent;color:inherit;font:inherit;text-align:left;cursor:pointer;border-radius:10px}
+.ph,.dm,.th{overflow:hidden;border-radius:10px;background:#26252a} .ph{aspect-ratio:4/3} .ph img,.dm img,.th img{width:100%;height:100%;object-fit:cover}
+.draw{display:grid;place-items:center;color:var(--accent);background:radial-gradient(90% 90% at 80% 10%,rgba(255,180,70,.26),transparent 70%),#1b1a1e;box-shadow:inset 0 0 0 1px var(--line)} .draw svg{width:58%;max-height:80%}
+.cb{display:grid;gap:5px;align-content:start;padding-inline:6px} .cb h3{font-size:18px;font-weight:800;line-height:1.2;letter-spacing:-.02em} .cd{color:var(--mut);font-size:14.5px;line-height:1.4} .cm{font-size:13.5px;font-weight:600;color:var(--text);opacity:.82;margin-top:3px}
+.add{min-height:46px;border:0;border-radius:11px;background:rgba(255,255,255,.1);color:var(--text);box-shadow:inset 0 0 0 1px var(--line);font:800 15px/1 "Manrope",Arial,sans-serif;cursor:pointer} .add:hover{background:var(--accent);color:var(--on-accent)} .add[aria-pressed=true]{background:var(--accent);color:var(--on-accent)}
+@media(max-width:560px){.cb h3{font-size:16px}.cd{font-size:13.5px}.cm{font-size:12.5px}.add{font-size:14px}}
+.empty{display:grid;gap:12px;justify-items:start;padding:40px 28px;border-radius:18px;background:var(--panel);box-shadow:inset 0 0 0 1px var(--line)} .empty h3{font-size:24px;font-weight:800;letter-spacing:-.02em} .empty p{color:var(--mut)} .empty div{display:flex;flex-wrap:wrap;gap:10px}
+.toast{position:fixed;z-index:30;left:50%;transform:translateX(-50%);bottom:max(16px,env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:14px;width:max-content;max-width:calc(100vw - 32px);padding:12px 14px 12px 18px;border-radius:12px;background:#f7f4ef;color:#0d0d12;font-weight:700;font-size:15px;box-shadow:0 10px 34px rgba(0,0,0,.45)} .toast[hidden]{display:none} .toast span{min-width:0} .toast button{flex:none;min-height:36px;padding:0 10px;border:0;border-radius:8px;background:#0d0d12;color:#ffd35c;font:800 14px/1 "Manrope",Arial,sans-serif;cursor:pointer}
+dialog{padding:0;border:0;color:var(--text);background:#17181d;box-shadow:0 24px 80px rgba(0,0,0,.6),inset 0 0 0 1px rgba(255,255,255,.14)} dialog::backdrop{background:rgba(0,0,0,.62);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+#detail{width:min(880px,calc(100vw - 24px));max-height:calc(100dvh - 24px);border-radius:20px;overflow:auto}
+.d-in{display:grid;grid-template-columns:minmax(0,1fr)} @media(min-width:720px){.d-in{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+.dm{aspect-ratio:4/3;border-radius:0} @media(min-width:720px){.dm{aspect-ratio:auto;height:100%;min-height:440px}}
+.dt{display:grid;gap:12px;align-content:start;padding:26px} .dt h2{font-size:30px;font-weight:800;line-height:1.08;letter-spacing:-.03em;padding-right:34px} .dd{color:var(--mut)}
+dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:7px 16px;margin:4px 0;font-size:15px} dl dt{font-weight:800} dl dd{margin:0;color:var(--mut)} .fl{font-size:14.5px;font-weight:700}
+.close{position:absolute;top:10px;right:10px;z-index:2;width:44px;height:44px;border:0;border-radius:50%;background:rgba(10,10,12,.72);color:#fff;font-size:24px;line-height:1;cursor:pointer}
+#drawer{width:min(460px,100vw);height:100dvh;max-height:100dvh;max-width:100vw;margin:0 0 0 auto;border-radius:0} #drawer[open]{display:flex;flex-direction:column}
+.dr-h{position:relative;padding:24px 22px 12px} .dr-h h2{font-size:26px;font-weight:800;letter-spacing:-.03em} .dr-b{flex:1;min-height:0;overflow:auto;padding:0 22px} .dr-f{display:grid;gap:10px;padding:16px 22px max(18px,env(safe-area-inset-bottom,0px));box-shadow:0 -1px 0 rgba(255,255,255,.12)} .dr-f .btn{width:100%}
+.line{display:grid;grid-template-columns:56px minmax(0,1fr) 92px;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)} .th{width:56px;height:56px} .th.draw svg{width:70%} .lm{display:grid;gap:0} .lm strong{font-size:15px;line-height:1.25} .lq{display:grid;gap:3px;font-size:12.5px;font-weight:700;color:var(--mut)} .lq input[type=number]{min-height:44px;padding:6px 8px;text-align:center}
+.none{color:var(--mut);padding:8px 0 4px}
+input.ok{box-shadow:inset 0 0 0 1px rgba(120,220,150,.7)} input[aria-invalid=true],textarea[aria-invalid=true]{box-shadow:inset 0 0 0 2px #ff9d87}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.skip{position:fixed;z-index:40;left:12px;top:-60px;padding:12px 16px;border-radius:10px;background:var(--accent);color:var(--on-accent);font-weight:800} .skip:focus{top:12px}
+#confirm{display:grid;gap:14px;padding:clamp(22px,3vw,34px);border-radius:20px;background:var(--veil);box-shadow:inset 0 0 0 1px rgba(255,255,255,.18);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)} #confirm[hidden]{display:none} #confirm:focus{outline:0} #confirm h3{font-size:30px;font-weight:800;letter-spacing:-.03em;line-height:1.1} .ref{font-weight:800;color:var(--accent)}
+.next{display:grid;gap:8px;counter-reset:n} .next li{counter-increment:n;display:flex;gap:10px} .next li::before{content:counter(n) ".";color:var(--accent);font-weight:800}
+.acts{display:flex;flex-wrap:wrap;gap:10px} #c-text{min-height:130px;font-size:14px}
+.jump{position:sticky;top:72px;z-index:10;margin:14px calc(var(--gut) * -1) 0;padding:10px var(--gut);background:rgba(16,12,13,.9);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(255,255,255,.08)} .jump[hidden]{display:none}
+.jump .row{flex-wrap:nowrap;overflow-x:auto;scroll-behavior:smooth;-webkit-mask-image:linear-gradient(90deg,#000 92%,transparent);mask-image:linear-gradient(90deg,#000 92%,transparent)} .pill[aria-current=true]{background:var(--accent);color:var(--on-accent)}
+#shelves{display:grid;gap:48px;margin-top:26px} #shelves[hidden]{display:none} .shelf{min-width:0;scroll-margin-top:150px}
+.sh{display:flex;align-items:center;gap:12px;min-height:46px;margin-bottom:12px} .sh h3{font-size:clamp(25px,2.7vw,34px);font-weight:800;letter-spacing:-.03em;line-height:1.1} .sh>span{color:var(--mut);font-size:15px;white-space:nowrap} .ss{color:var(--mut);margin:-8px 0 14px}
+.arrows{display:flex;gap:6px;margin-left:auto} .arrows[hidden]{display:none} .arrows button{width:44px;height:44px;border:0;border-radius:50%;background:rgba(255,255,255,.1);box-shadow:inset 0 0 0 1px var(--line);color:var(--text);font-size:24px;line-height:1;cursor:pointer} .arrows button:hover:not(:disabled){background:var(--accent);color:var(--on-accent)} .arrows button:disabled{opacity:.3;cursor:default}
+.track{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 48px) / 4);gap:16px;padding:2px;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:none;-webkit-overflow-scrolling:touch} .track::-webkit-scrollbar{display:none} .track>li{min-width:0;scroll-snap-align:start}
+@media(max-width:1000px){.track{grid-auto-columns:calc((100% - 32px) / 2.5)}} @media(max-width:600px){.track{grid-auto-columns:64%;gap:10px}.arrows{display:none}}
+.ph{position:relative} .rank{position:absolute;top:8px;left:8px;padding:5px 9px;border-radius:8px;background:var(--accent);color:var(--on-accent);font-size:13.5px;font-weight:800;line-height:1}
+.sec{position:relative;isolation:isolate;overflow:clip;padding-block:clamp(72px,9vw,128px)}
+#catalog{background:var(--g1)} #process{background:var(--g2)} #faq{background:linear-gradient(var(--g2),var(--g3))} .foot{background:var(--g3)}
+.sec::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(52% 62% at 100% 0%,rgba(255,170,60,.17),transparent 72%),radial-gradient(44% 56% at 0% 100%,rgba(255,150,50,.09),transparent 74%)}
+#process::before{background:radial-gradient(60% 80% at 0% 40%,rgba(255,170,60,.16),transparent 72%),radial-gradient(40% 60% at 100% 100%,rgba(255,211,92,.1),transparent 74%)}
+#faq::before{background:radial-gradient(50% 70% at 100% 60%,rgba(255,170,60,.13),transparent 72%)}
+.head{display:grid;gap:12px;margin-bottom:44px;max-width:760px} .head p.sub{color:var(--mut);font-size:18px;max-width:50ch}
+.after{margin-top:30px;color:var(--mut)} .after a{color:var(--accent);font-weight:700}
+.band{position:relative;isolation:isolate;overflow:hidden}
+.band-c{display:grid;gap:16px;padding-block:clamp(90px,12vw,170px);max-width:800px}
+.band h2{font-weight:800;font-size:clamp(40px,6vw,80px);line-height:1;letter-spacing:-.045em;text-wrap:balance} .band em{font-style:normal;color:var(--accent)} .band p.sub{font-size:19px;font-weight:500;max-width:46ch}
+.steps{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr))}
+.step{display:grid;gap:10px;align-content:start;padding-top:20px;border-top:2px solid var(--accent)}
+.step b{font-size:15px;color:var(--accent);font-weight:800} .step h3{font-size:23px;font-weight:800;letter-spacing:-.025em;line-height:1.15} .step p{color:var(--mut);font-size:16px}
+.pay{margin-top:36px;color:var(--mut);font-size:15.5px;max-width:70ch}
+.faq{display:grid;gap:36px;grid-template-columns:minmax(0,1fr)} @media(min-width:900px){.faq{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px}}
+.faq .side{display:grid;gap:12px;align-content:start} .faq .side p.sub{color:var(--mut)}
+details{border-bottom:1px solid var(--line)} summary{display:flex;justify-content:space-between;align-items:center;gap:18px;min-height:64px;padding-block:14px;font-size:19px;font-weight:700;letter-spacing:-.015em;cursor:pointer;list-style:none} summary::-webkit-details-marker{display:none}
+summary::after{content:"+";flex:none;color:var(--accent);font-size:26px;font-weight:600;line-height:1} details[open] summary::after{content:"\2212"}
+details p{color:var(--mut);padding-bottom:20px;max-width:58ch}
+.quote{padding-block:clamp(72px,9vw,120px)}
+.q-in{display:grid;gap:36px;grid-template-columns:minmax(0,1fr);align-items:start} @media(min-width:940px){.q-in{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px}}
+.q-l{display:grid;gap:16px} .q-l .sub{font-size:19px;font-weight:500;max-width:36ch}
+.incl{display:grid;gap:8px;margin-top:6px;font-weight:600} .incl li{display:flex;gap:10px;align-items:baseline} .incl li::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--accent);transform:translateY(-1px)}
+.q-l .mail{font-size:15.5px}
+form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;padding:clamp(20px,3vw,32px);border-radius:20px;background:var(--veil);box-shadow:inset 0 0 0 1px rgba(255,255,255,.18);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
+.f{display:grid;gap:6px;min-width:0;border:0;padding:0;margin:0} .full{grid-column:1/-1} @media(max-width:520px){.f:not(.full){grid-column:1/-1}}
+.f label:not(.chip),legend{font-size:14.5px;font-weight:700;padding:0} .opt{color:var(--mut);font-weight:500}
+input:not([type=checkbox]),textarea{width:100%;min-height:50px;padding:12px 14px;border:0;border-radius:10px;background:rgba(255,255,255,.08);box-shadow:inset 0 0 0 1px var(--line);color:var(--text);font:500 16px/1.4 "Manrope",Arial,sans-serif} textarea{min-height:108px;resize:vertical} ::placeholder{color:var(--mut);opacity:.85}
+.err{color:#ffb4a0;font-size:14px;font-weight:600} .err:empty{display:none} .fine{color:var(--mut);font-size:14px;margin-top:10px} #q-status{font-size:15px;margin-top:10px;font-weight:600}
+.foot{padding-block:48px 28px;border-top:1px solid var(--line);font-size:15px;color:var(--mut)}
+.foot-in{display:grid;gap:30px;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr))} .foot .word{color:var(--text)} .foot h4{margin:0 0 10px;color:var(--text);font-size:15px;font-weight:800} .foot li{margin-bottom:6px} .foot a:hover{color:var(--accent)}
+.base{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;margin-top:34px;font-size:14px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.item{transition:none}}
+</style>
+</head><body>
+
+<a class="skip" href="#catalog">Skip to the catalog</a>
+<header class="bar"><div class="wrap"><a class="word" href="#top">Oak &amp; Lumen</a>
+  <nav class="nav" aria-label="Main"><a href="#catalog">Catalog</a><a href="#process">How it works</a><a href="#faq">Questions</a><button class="btn btn-sm" id="open-list" type="button">Quote list<span class="badge" id="n" hidden>0</span></button></nav></div></header>
+
+<section class="hero lit" id="top">
+  <div class="wrap hero-c">
+    <p class="kick">Custom goods for clubs and shops</p>
+    <h1>Your name on something worth keeping.</h1>
+    <p class="lead">Logo merchandise and bulk goods, made at the factory and delivered to your door at one price, duties included.</p>
+    <div class="ctas"><a class="btn" href="#catalog">Browse the catalog</a><a class="btn btn-line" href="#quote">Request a quote</a></div>
+  </div>
+  <div class="wrap"><ul class="prom" aria-label="What every order includes"><li>Written quote</li><li>Proof before production</li><li>Duties included</li><li>Delivered to your door</li></ul></div>
+</section>
+
+<main>
+  <section class="sec" id="catalog"><div class="wrap">
+    <div class="head"><p class="kick">The catalog</p><h2 class="h2">Made with your name on it</h2><p class="sub">Scroll by category and add what you like. We send back one delivered price for all of it.</p></div>
+    <div class="tools">
+      <div class="search" role="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.8-3.8"/></svg><input id="q" type="search" autocomplete="off" aria-label="Search the catalog" placeholder="Search hat clips, towels, caps"><button class="xbtn" id="q-x" type="button" aria-label="Clear search" hidden>&times;</button></div>
+      <div class="facet"><span id="l-aud">Good for</span><div class="row" id="f-aud" role="group" aria-labelledby="l-aud"></div></div>
+    </div>
+    <div class="status"><p id="count" role="status" aria-live="polite" tabindex="-1"></p><div id="applied"></div></div>
+    <div class="jump" id="jumpbar"><div class="row" id="f-jump" role="group" aria-label="Jump to a category"></div></div>
+    <div id="shelves"></div>
+    <ul id="grid" hidden></ul>
+    <div class="empty" id="empty" hidden><h3 id="empty-q"></h3><p>We can source almost anything with a logo on it. Tell us what you want and we will find it.</p><div><button class="btn" id="empty-ask" type="button">Ask us for it</button><button class="btn btn-line" id="empty-clear" type="button">Clear search and filters</button></div></div>
+    <p class="after">Do not see it? Tell us what you need and we will tell you if we can make it. <a href="#quote">Ask us</a></p>
+  </div></section>
+
+  <section class="band lit"><div class="wrap"><div class="band-c">
+    <p class="kick">Why Oak &amp; Lumen</p><h2>We handle the factory. <em>You get the credit.</em></h2><p class="sub">Sourcing, samples, production, freight and customs, handled by one US company, by email.</p>
+  </div></div></section>
+
+  <section class="sec" id="process"><div class="wrap">
+    <div class="head"><p class="kick">How it works</p><h2 class="h2">From your logo to your door</h2></div>
+    <ol class="steps">
+      <li class="step"><b>1</b><h3>Tell us what you need</h3><p>The product, the quantity and the date. We reply with one delivered price and a delivery window.</p></li>
+      <li class="step"><b>2</b><h3>Approve your proof</h3><p>See your logo on the product. Nothing is made until you say go.</p></li>
+      <li class="step"><b>3</b><h3>We make it</h3><p>Your deposit starts production, and you get photo updates along the way.</p></li>
+      <li class="step"><b>4</b><h3>Delivered to your door</h3><p>Duties paid, with a carrier tracking number.</p></li>
+    </ol>
+    <p class="pay">A deposit starts production. The balance is due when your order is ready to ship. Invoiced by Arc Commerce LLC, with full terms in every quote.</p>
+  </div></section>
+
+  <section class="sec" id="faq" style="padding-top:0"><div class="wrap faq">
+    <div class="side"><p class="kick">Questions</p><h2 class="h2">Good to know</h2><p class="sub">Anything else? Write to us at support@oakandlumen.com.</p></div>
+    <div>
+      <details open><summary>What is the minimum order?</summary><p>It depends on the product. We quote the lowest quantity the factory will run, and the price per piece drops as the quantity goes up.</p></details>
+      <details><summary>How long does an order take?</summary><p>It depends on the product and how it ships. Your quote gives you the delivery window before you pay anything.</p></details>
+      <details><summary>Where are the products made?</summary><p>At factories we pick for each product. Every item is labeled with its country of origin.</p></details>
+      <details><summary>How do I pay?</summary><p>By bank transfer to Arc Commerce LLC. A deposit starts production, and the balance is due when the order is ready to ship.</p></details>
+      <details><summary>Can I see it first?</summary><p>Every custom order starts with a proof you approve, and nothing is made until you do.</p></details>
+      <details><summary>Why are there no prices in the catalog?</summary><p>Your price depends on the quantity, the logo method and freight to your door. Add what you like and we send one delivered price, so there is no math left for you to do.</p></details>
+      <details><summary>What if I do not see what I want?</summary><p>Tell us. Most of what we make is not listed here. If a factory can make it with your logo, we can quote it.</p></details>
+      <details><summary>Is the quoted price final?</summary><p>Yes, until the date on your quote. It includes freight and import duties to your door. If you change the order, we re-quote before you pay anything.</p></details>
+    </div>
+  </div></section>
+
+  <section class="quote lit" id="quote"><div class="wrap q-in">
+    <div class="q-l"><p class="kick">Request a quote</p><h2 class="h2">Tell us what you have in mind</h2><p class="sub">We reply by email with a delivered price you can say yes to.</p>
+      <ul class="incl" aria-label="Every quote includes"><li>Price per piece, delivered</li><li>Freight and import duties included</li><li>Deposit and balance amounts</li><li>Your delivery window</li></ul>
+      <p class="mail">Prefer email? support@oakandlumen.com</p></div>
+    <form id="quote-form" novalidate>
+      <div class="f full"><span class="fl">Your quote list</span><ul id="form-lines"></ul><p class="none" id="form-empty">Nothing added yet. <a href="#catalog" style="color:var(--accent);font-weight:700">Browse the catalog</a>, or tell us below what you want made.</p></div>
+      <div class="f"><label for="q-name">Your name</label><input id="q-name" autocomplete="name" required aria-describedby="q-name-err"><span class="err" id="q-name-err" role="alert"></span></div>
+      <div class="f"><label for="q-biz">Business</label><input id="q-biz" autocomplete="organization" required aria-describedby="q-biz-err"><span class="err" id="q-biz-err" role="alert"></span></div>
+      <div class="f"><label for="q-email">Email</label><input id="q-email" type="email" autocomplete="email" inputmode="email" required aria-describedby="q-email-err"><span class="err" id="q-email-err" role="alert"></span></div>
+      <div class="f"><label for="q-date">Needed by <span class="opt">(optional)</span></label><input id="q-date" type="date"></div>
+      <div class="f full"><label for="q-what">Anything else? <span class="opt">(optional if you added products)</span></label><textarea id="q-what" aria-describedby="q-what-err" placeholder="Colors, logo placement, or something not in the catalog."></textarea><span class="err" id="q-what-err" role="alert"></span></div>
+      <div class="hp" aria-hidden="true"><label for="q-hp">Leave this empty</label><input id="q-hp" tabindex="-1" autocomplete="off"></div>
+      <div class="full"><button class="btn" id="q-send" type="submit">Request my quote</button><p class="fine">No payment now. Have a logo file? Send it when we reply. We only use these details to answer your request.</p></div>
+    </form>
+    <div id="confirm" tabindex="-1" hidden role="status"><h3 id="c-title"></h3><p>Your reference is <span class="ref" id="c-ref"></span></p>
+      <div id="c-handoff"><p style="margin-bottom:12px">Your request is written. Press the button to send it from your email app. If nothing opens, copy it and email it to support@oakandlumen.com.</p><div class="acts"><a class="btn" id="c-mail">Send from my email app</a><button class="btn btn-line" id="c-copy" type="button">Copy the request</button></div><label class="f" style="margin-top:12px"><span class="fl">Your request</span><textarea id="c-text" readonly></textarea></label></div>
+      <p id="c-sent">It is in our inbox. Watch your email for your quote.</p>
+      <ol class="next"><li>We email one delivered price and a delivery window.</li><li>You approve a proof of your logo on the product.</li><li>Your deposit starts production.</li></ol>
+      <div class="acts"><button class="btn btn-line" id="c-new" type="button">Start a new request</button></div></div>
+  </div></section>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <div class="foot-in">
+    <div><a class="word" href="#top">Oak &amp; Lumen</a><p style="margin-top:12px">Custom goods for clubs and shops, made at the factory and delivered to your door.</p></div>
+    <div><h4>Catalog</h4><ul><li><a href="#catalog">Golf accessories</a></li><li><a href="#catalog">Caps and apparel</a></li><li><a href="#catalog">Towels and totes</a></li></ul></div>
+    <div><h4>Company</h4><ul><li><a href="#process">How it works</a></li><li><a href="#faq">Questions</a></li><li><a href="closers.html">Work with us</a></li><li><a href="privacy.html">Privacy</a></li></ul></div>
+    <div><h4>Contact</h4><ul><li>support@oakandlumen.com</li><li><a href="#quote">Request a quote</a></li><li>Operated by Arc Commerce LLC, Arizona, United States</li></ul></div>
+  </div>
+  <div class="base"><span>&copy; <span id="yr">2026</span> Oak &amp; Lumen. All rights reserved.</span><span>Arc Commerce LLC</span></div>
+</div></footer>
+
+
+
+<dialog id="detail" aria-labelledby="d-title"><button class="close" id="d-close" type="button" aria-label="Close">&times;</button><div class="d-in" id="d-body"></div></dialog>
+<dialog id="drawer" aria-labelledby="dr-title"><div class="dr-h"><h2 id="dr-title">Your quote list</h2><button class="close" id="drawer-close" type="button" aria-label="Close">&times;</button></div>
+  <div class="dr-b"><ul id="drawer-lines"></ul><p class="none" id="drawer-empty">Nothing here yet. Add products from the catalog and they will show up here.</p></div>
+  <div class="dr-f"><button class="btn" id="drawer-go" type="button">Continue to request</button><button class="btn btn-line" id="drawer-browse" type="button">Keep browsing</button></div></dialog>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+(function () {
+  var ENDPOINT = 'https://formsubmit.co/ajax/support@oakandlumen.com';  /* set to a form service URL to send requests straight to the inbox; empty = hand off to the buyer's email app */
+  var INBOX = 'support@oakandlumen.com';
+  var CATALOG = /*CATALOG*/[{"id":"hat-clip","name":"Magnetic hat clip and ball marker","desc":"Metal clip for the brim with a removable magnetic marker, your logo on top.","type":"golf","for":["golf","events"],"logo":"Printed or enamel","photo":"img/p/hat-clip.jpg","icon":"clip","alt":"A magnetic hat clip with a logo ball marker on a navy cap","keys":"hat clip marker magnet magnetic ball brim pro shop"},{"id":"ball-marker","name":"Logo ball marker","desc":"One inch round metal marker with a full color logo under a clear dome.","type":"golf","for":["golf","events"],"logo":"Printed","photo":"img/p/ball-marker.jpg","icon":"marker","alt":"Three round logo ball markers next to a golf ball","keys":"ball marker coin golf tee gift","rank":8},{"id":"golf-cap","name":"Embroidered golf cap","desc":"Structured six panel performance cap with your logo stitched on the front.","type":"hats","also":["golf"],"for":["golf","events"],"logo":"Embroidered","photo":"img/p/cap-white.jpg","alt":"A white cap with a small embroidered logo","keys":"hat cap baseball performance pro shop","rank":7},{"id":"washed-cap","name":"Washed cotton cap","desc":"Relaxed six panel cotton cap with flat embroidery.","type":"hats","for":["brewery","gym","dealer","events"],"logo":"Embroidered","photo":"img/p/cap-grey.jpg","alt":"A washed grey baseball cap","keys":"hat cap dad baseball cotton","rank":4},{"id":"tees","name":"Logo T-shirts","desc":"Printed or embroidered tees for staff or for the shop.","type":"apparel","for":["golf","brewery","gym","dealer","events"],"logo":"Printed or embroidered","photo":"img/p/tees-folded.jpg","alt":"Two folded T-shirts","keys":"shirt tee t-shirt tshirt staff uniform","rank":3},{"id":"hoodie","name":"Hoodies and sweatshirts","desc":"Heavyweight fleece with your logo printed or stitched.","type":"apparel","for":["golf","brewery","gym","dealer","events"],"logo":"Printed or embroidered","photo":"img/p/sweatshirt.jpg","alt":"A white sweatshirt with an orange sun print","keys":"hoodie sweatshirt crewneck fleece sweater"},{"id":"staff-shirts","name":"Staff shirts","desc":"A matching look for your team, in the colors you pick.","type":"apparel","for":["golf","brewery","gym","dealer"],"logo":"Printed or embroidered","photo":"img/p/shirt-rack.jpg","alt":"A rack of shirts in several colors","keys":"uniform polo staff team work shirt"},{"id":"golf-towel","name":"Waffle golf towel","desc":"About 16 by 24 inches, microfiber waffle with a grommet and hook.","type":"towels","also":["golf"],"for":["golf","events"],"logo":"Printed or embroidered","photo":"img/p/golf-towel.jpg","icon":"hook","alt":"A folded charcoal waffle golf towel with a hook","keys":"towel golf bag microfiber waffle"},{"id":"cooling-towel","name":"Cooling towel","desc":"Microfiber towel that cools when wet, with your logo.","type":"towels","for":["gym","golf","events"],"logo":"Printed","icon":"towel","keys":"towel cooling gym sweat summer"},{"id":"canvas-tote","name":"Canvas tote","desc":"Plain or natural canvas tote, printed with your logo.","type":"bags","for":["brewery","gym","events"],"logo":"Printed","photo":"img/p/tote-canvas.jpg","alt":"A plain canvas tote bag","keys":"bag tote canvas shopping","rank":2},{"id":"printed-totes","name":"Event carry bags","desc":"Light printed bags for events, handouts and welcome kits.","type":"bags","for":["events","golf"],"logo":"Printed","photo":"img/p/totes-printed.jpg","alt":"A pile of printed cotton bags","keys":"bag tote event giveaway handout kit"},{"id":"tap-handle","name":"Custom beer tap handle","desc":"Resin or wood handle in your shape, standard 3/8-16 thread.","type":"shop","for":["brewery"],"logo":"Molded or printed","icon":"tap","keys":"tap handle beer brewery taproom bar keg"},{"id":"plate-frame","name":"License plate frame","desc":"Steel or zinc frame with your dealership name embossed.","type":"shop","for":["dealer"],"logo":"Embossed","icon":"plate","keys":"license plate frame dealer car auto","rank":5},{"id":"hang-tag","name":"Mirror hang tags","desc":"Printed service and price tags in a custom size.","type":"shop","for":["dealer"],"logo":"Printed","icon":"tag","keys":"hang tag mirror service dealer price card"},{"id":"keychain","name":"Metal keychain","desc":"Zinc alloy keychain, laser engraved or printed under epoxy.","type":"small","for":["dealer","events","gym"],"logo":"Engraved or printed","icon":"key","keys":"keychain key ring fob dealer giveaway","rank":6},{"id":"lanyards","name":"Printed lanyards","desc":"Full color lanyards for staff, events and badges.","type":"small","for":["events","gym"],"logo":"Printed","photo":"img/p/lanyards.jpg","alt":"Printed lanyards hanging on a shelf","keys":"lanyard badge id event staff"},{"id":"stickers","name":"Die-cut stickers","desc":"Your logo cut to shape, for bags, boxes and giveaways.","type":"small","for":["brewery","gym","dealer","events","golf"],"logo":"Printed","photo":"img/p/stickers.jpg","alt":"A sheet of illustrated die-cut stickers","keys":"sticker decal label vinyl giveaway"},{"id":"gift-box","name":"Branded gift box","desc":"Rigid box with your logo, for gift sets and packaging.","type":"packaging","for":["golf","brewery","events"],"logo":"Foil or printed","photo":"img/p/box-black.jpg","alt":"A black rigid gift box with a printed logo","keys":"box packaging gift rigid set"},{"id":"gym-towel","name":"Cotton logo towel","desc":"100% cotton towel with your logo woven or embroidered in.","type":"towels","for":["gym","golf","events"],"logo":"Embroidered or woven","photo":"img/p/towels-stripe.jpg","alt":"A stack of striped cotton towels","keys":"towel gym cotton sport shop terry","rank":1},{"id":"divot-tool","name":"Logo divot tool","desc":"Metal repair tool with a removable logo ball marker.","type":"golf","for":["golf","events"],"logo":"Printed or enamel","photo":"img/p/divot-tool.jpg","icon":"divot","alt":"A metal divot tool with a logo ball marker","keys":"divot repair tool marker golf"},{"id":"bag-tag","name":"Golf bag tag","desc":"Metal or soft PVC tag with your logo, for members and events.","type":"golf","for":["golf","events"],"logo":"Printed or enamel","icon":"bagtag","keys":"bag tag golf member tournament"}]/*END*/;
+  var AUD = { golf: 'Golf courses', brewery: 'Breweries', gym: 'Gyms', dealer: 'Dealerships', events: 'Events and teams' };
+  var TYPE = { golf: 'Golf accessories', hats: 'Caps and hats', apparel: 'Shirts and hoodies', towels: 'Towels', bags: 'Totes and bags', shop: 'Shop and dealer', small: 'Small giveaways', packaging: 'Packaging' };
+  var ICON = {
+    clip: '<path d="M30 60h52c8 0 8-14 0-14H44"/><circle cx="66" cy="53" r="20"/><circle cx="66" cy="53" r="11"/>',
+    marker: '<circle cx="60" cy="48" r="30"/><circle cx="60" cy="48" r="20"/><path d="M52 48l6 6 11-13"/>',
+    hook: '<path d="M60 8c6 0 6 8 0 8v8"/><path d="M34 24h52v62H34z"/><circle cx="60" cy="32" r="3"/><path d="M34 48h52M34 64h52"/>',
+    divot: '<path d="M50 12h20a8 8 0 0 1 8 8v18c0 8-6 12-12 12v36h-3V58h-6v28h-3V50c-6 0-12-4-12-12V20a8 8 0 0 1 8-8z"/><circle cx="60" cy="30" r="9"/>',
+    bagtag: '<rect x="32" y="34" width="56" height="54" rx="10"/><path d="M60 34V22c0-14 18-14 18 0"/><circle cx="60" cy="61" r="13"/>',
+    towel: '<path d="M30 22h60v62H30z"/><path d="M30 38h60M30 68c10-7 20 7 30 0s20 7 30 0M30 54c10-7 20 7 30 0s20 7 30 0"/>',
+    tap: '<path d="M50 12h20l5 46H45z"/><path d="M52 58h16v10H52zM56 68h8v16h-8z"/><path d="M53 28h14"/>',
+    plate: '<rect x="18" y="24" width="84" height="50" rx="8"/><rect x="28" y="34" width="64" height="30" rx="3"/><circle cx="36" cy="29" r="1.5"/><circle cx="84" cy="29" r="1.5"/>',
+    tag: '<path d="M42 16h36v66a6 6 0 0 1-6 6H48a6 6 0 0 1-6-6z"/><circle cx="60" cy="30" r="8"/><path d="M50 56h20M50 66h20M50 76h12"/>',
+    key: '<circle cx="42" cy="28" r="14"/><rect x="48" y="40" width="42" height="42" rx="7"/><path d="M60 61h18"/>'
+  };
+  var $ = function (id) { return document.getElementById(id); };
+  var el = function (tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
+  var byId = {}; CATALOG.forEach(function (p) { byId[p.id] = p; });
+  var SHELVES = [{ key: 'popular', label: 'Most popular', sub: 'The logo products factories are selling the most of right now.', items: CATALOG.filter(function (p) { return p.rank; }).sort(function (a, b) { return a.rank - b.rank; }) }];
+  Object.keys(TYPE).forEach(function (k) { SHELVES.push({ key: k, label: TYPE[k], items: CATALOG.filter(function (p) { return p.type === k || (p.also || []).indexOf(k) > -1; }) }); });
+  SHELVES = SHELVES.filter(function (s) { return s.items.length; });
+  var state = { q: '', aud: {} }, list = [];
+  try { list = (JSON.parse(localStorage.getItem('ol-quote') || '[]') || []).filter(function (l) { return byId[l.id]; }); } catch (e) { list = []; }
+  function save() { try { localStorage.setItem('ol-quote', JSON.stringify(list)); } catch (e) {} }
+  function inList(id) { return list.some(function (l) { return l.id === id; }); }
+  function words(s) { return s.toLowerCase().replace(/[^a-z0-9 ]+/g, ' ').split(/\s+/).filter(Boolean).map(function (w) { return w.length > 3 ? w.replace(/s$/, '') : w; }); }
+  function hay(p) { return [p.name, p.desc, p.keys, p.logo, TYPE[p.type]].concat((p['for'] || []).map(function (a) { return AUD[a]; })).join(' ').toLowerCase(); }
+  function picked(o) { return Object.keys(o).filter(function (k) { return o[k]; }); }
+  function matches(p, skip) {
+    var a = picked(state.aud);
+    if (skip !== 'aud' && a.length && !a.some(function (x) { return p['for'].indexOf(x) > -1; })) return false;
+    var h = hay(p); return words(state.q).every(function (w) { return h.indexOf(w) > -1; });
+  }
+  function art(p, cls) {
+    var box = el('div', cls);
+    if (p.photo) { var i = el('img'); i.src = p.photo; i.alt = p.alt || p.name; i.loading = 'lazy'; box.appendChild(i); }
+    else { box.classList.add('draw'); box.innerHTML = '<svg viewBox="0 0 120 100" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="' + p.name.replace(/"/g, '') + ' illustration">' + (ICON[p.icon] || '') + '</svg>'; }
+    return box;
+  }
+  function facet(rowId, labels, key) {
+    var row = $(rowId); row.textContent = '';
+    Object.keys(labels).forEach(function (k) {
+      var n = CATALOG.filter(function (p) { return matches(p, key) && p['for'].indexOf(k) > -1; }).length;
+      var b = el('button', 'pill', labels[k]); b.type = 'button'; b.setAttribute('aria-pressed', state[key][k] ? 'true' : 'false');
+      b.appendChild(el('small', '', String(n))); b.disabled = !n && !state[key][k];
+      b.addEventListener('click', function () { state[key][k] = !state[key][k]; draw(rowId, k); });
+      b.dataset.k = k; row.appendChild(b);
+    });
+  }
+  function addBtn(p) {
+    var b = el('button', 'add'); b.type = 'button'; b.dataset.add = p.id; paint(b, p.id);
+    b.addEventListener('click', function () { toggle(p.id); });
+    return b;
+  }
+  function paint(b, id) { var on = inList(id); b.textContent = on ? '✓ In your quote' : 'Add to quote'; b.setAttribute('aria-pressed', on ? 'true' : 'false'); b.setAttribute('aria-label', (on ? 'Remove ' : 'Add ') + byId[id].name + (on ? ' from your quote' : ' to your quote')); }
+  function card(p, ranked) {
+    var li = el('li', 'card'), open = el('button', 'open'); open.type = 'button'; open.setAttribute('aria-label', 'See details for ' + p.name);
+    var pic = art(p, 'ph'); if (ranked && p.rank) pic.appendChild(el('span', 'rank', '#' + p.rank)); open.appendChild(pic);
+    var body = el('div', 'cb'); body.appendChild(el('h3', '', p.name)); body.appendChild(el('p', 'cd', p.desc));
+    var meta = 'Logo: ' + p.logo; if (p.min) meta += '. Order as few as ' + p.min; if (p.from_price) meta += '. From ' + p.from_price;
+    body.appendChild(el('p', 'cm', meta)); open.appendChild(body);
+    open.addEventListener('click', function () { detail(p); });
+    li.appendChild(open); li.appendChild(addBtn(p)); return li;
+  }
+  function arrows(track, nav) {
+    var b = nav.querySelectorAll('button');
+    function up() { var over = track.scrollWidth > track.clientWidth + 4; nav.hidden = !over; b[0].disabled = track.scrollLeft < 4; b[1].disabled = track.scrollLeft + track.clientWidth > track.scrollWidth - 4; }
+    function go(d) { track.scrollBy({ left: d * track.clientWidth * .9, behavior: 'smooth' }); }
+    b[0].addEventListener('click', function () { go(-1); }); b[1].addEventListener('click', function () { go(1); });
+    track.addEventListener('scroll', up, { passive: true }); window.addEventListener('resize', up); up(); setTimeout(up, 400);
+  }
+  function shelves() {
+    var host = $('shelves'), jump = $('f-jump');
+    SHELVES.forEach(function (s) {
+      var sec = el('section', 'shelf'); sec.id = 's-' + s.key; sec.setAttribute('aria-labelledby', 'h-' + s.key);
+      var head = el('div', 'sh'), h = el('h3', '', s.label); h.id = 'h-' + s.key; head.appendChild(h); head.appendChild(el('span', '', s.items.length + (s.items.length === 1 ? ' product' : ' products')));
+      var nav = el('div', 'arrows'); ['left', 'right'].forEach(function (d) { var b = el('button', '', d === 'left' ? '\u2039' : '\u203a'); b.type = 'button'; b.setAttribute('aria-label', 'Scroll ' + s.label + ' ' + d); nav.appendChild(b); }); head.appendChild(nav); sec.appendChild(head);
+      if (s.sub) sec.appendChild(el('p', 'ss', s.sub));
+      var track = el('ul', 'track'); track.setAttribute('tabindex', '0'); track.setAttribute('aria-label', s.label + ' products'); s.items.forEach(function (p) { track.appendChild(card(p, s.key === 'popular')); }); sec.appendChild(track); host.appendChild(sec); arrows(track, nav);
+      var c = el('button', 'pill', s.label); c.type = 'button'; c.dataset.k = s.key; c.addEventListener('click', function () { sec.scrollIntoView(); }); jump.appendChild(c);
+    });
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (!e.isIntersecting) return; var k = e.target.id.slice(2); Array.prototype.forEach.call(jump.children, function (c) { if (c.dataset.k === k) { c.setAttribute('aria-current', 'true'); jump.scrollTo({ left: c.offsetLeft - 20, behavior: 'smooth' }); } else c.removeAttribute('aria-current'); }); }); }, { rootMargin: '-160px 0px -60% 0px' });
+      Array.prototype.forEach.call(host.children, function (x) { io.observe(x); });
+    }
+  }
+  function draw(refocusRow, refocusKey) {
+    var browsing = !state.q && !picked(state.aud).length, shown = CATALOG.filter(function (p) { return matches(p); }), grid = $('grid');
+    facet('f-aud', AUD, 'aud');
+    grid.textContent = ''; if (!browsing) shown.forEach(function (p) { grid.appendChild(card(p)); });
+    $('shelves').hidden = !browsing; $('jumpbar').hidden = !browsing; if (browsing) window.dispatchEvent(new Event('resize'));
+    $('count').textContent = browsing ? CATALOG.length + ' products in ' + (SHELVES.length - 1) + ' categories' : shown.length + (shown.length === 1 ? ' product' : ' products');
+    $('empty').hidden = browsing || shown.length > 0; grid.hidden = browsing || !shown.length;
+    if (!browsing && !shown.length) $('empty-q').textContent = state.q ? 'Nothing matches "' + state.q + '" yet.' : 'Nothing matches those filters.';
+    var ap = $('applied'); ap.textContent = '';
+    function tag(label, off) { var b = el('button', 'tagx', label); b.type = 'button'; b.setAttribute('aria-label', 'Remove filter ' + label); b.appendChild(el('span', '', '×')); b.addEventListener('click', function () { off(); draw(); $('count').focus(); }); ap.appendChild(b); }
+    if (state.q) tag('"' + state.q + '"', function () { state.q = ''; $('q').value = ''; syncX(); });
+    picked(state.aud).forEach(function (k) { tag(AUD[k], function () { state.aud[k] = false; }); });
+    if (ap.children.length) { var c = el('button', 'clear', 'Clear all'); c.type = 'button'; c.addEventListener('click', clearAll); ap.appendChild(c); }
+    if (refocusRow) { var again = $(refocusRow).querySelector('[data-k="' + refocusKey + '"]'); if (again) again.focus(); }
+  }
+  function clearAll() { state = { q: '', aud: {} }; $('q').value = ''; syncX(); draw(); $('q').focus(); }
+  function syncX() { $('q-x').hidden = !$('q').value; }
+  var toastT;
+  function toast(msg, action, fn) {
+    var t = $('toast'); t.textContent = ''; t.appendChild(el('span', '', msg));
+    if (action) { var b = el('button', '', action); b.type = 'button'; b.addEventListener('click', function () { t.hidden = true; fn(); }); t.appendChild(b); }
+    t.hidden = false; clearTimeout(toastT); toastT = setTimeout(function () { t.hidden = true; }, 5000);
+  }
+  function sync() {
+    save();
+    var n = list.length;
+    $('n').textContent = n; $('n').hidden = !n; $('open-list').setAttribute('aria-label', 'Open quote list, ' + n + (n === 1 ? ' item' : ' items'));
+    document.querySelectorAll('[data-add]').forEach(function (b) { paint(b, b.dataset.add); });
+    ['drawer-lines', 'form-lines'].forEach(lines);
+    $('drawer-go').hidden = !n; $('drawer-empty').hidden = !!n; $('form-empty').hidden = !!n;
+  }
+  function toggle(id, qty) {
+    var p = byId[id];
+    if (inList(id)) { var was = list.filter(function (l) { return l.id === id; })[0]; list = list.filter(function (l) { return l.id !== id; }); sync(); toast('Removed ' + p.name, 'Undo', function () { list.push(was); sync(); }); }
+    else { list.push({ id: id, qty: qty || 100 }); sync(); toast('Added ' + p.name, 'View list', openDrawer); }
+  }
+  function lines(hostId) {
+    var host = $(hostId), keep = document.activeElement && host.contains(document.activeElement) ? document.activeElement.dataset.qty : null; host.textContent = '';
+    list.forEach(function (l) {
+      var p = byId[l.id], row = el('li', 'line'); row.appendChild(art(p, 'th'));
+      var mid = el('div', 'lm'); mid.appendChild(el('strong', '', p.name));
+      var rm = el('button', 'rm', 'Remove'); rm.type = 'button'; rm.setAttribute('aria-label', 'Remove ' + p.name); rm.addEventListener('click', function () { toggle(l.id); }); mid.appendChild(rm); row.appendChild(mid);
+      var lab = el('label', 'lq'); lab.appendChild(el('span', '', 'Quantity'));
+      var q = el('input'); q.type = 'number'; q.min = '1'; q.step = '1'; q.inputMode = 'numeric'; q.value = l.qty; q.dataset.qty = l.id; q.setAttribute('aria-label', 'Quantity for ' + p.name);
+      q.addEventListener('change', function () { var v = Math.max(1, parseInt(q.value, 10) || 1); l.qty = v; q.value = v; save(); ['drawer-lines', 'form-lines'].forEach(function (h) { if (h !== hostId) lines(h); }); });
+      lab.appendChild(q); row.appendChild(lab); host.appendChild(row);
+    });
+    if (keep) { var f = host.querySelector('[data-qty="' + keep + '"]'); if (f) f.focus(); }
+  }
+  function openDrawer() { $('toast').hidden = true; $('drawer').showModal(); }
+  function closeOnBackdrop(d) { d.addEventListener('click', function (e) { if (e.target === d) d.close(); }); }
+  function detail(p) {
+    var host = $('d-body'); host.textContent = '';
+    var media = art(p, 'dm'); var i = media.querySelector('img'); if (i) i.loading = 'eager'; host.appendChild(media);
+    var t = el('div', 'dt'); t.appendChild(el('p', 'kick', TYPE[p.type])); var h = el('h2', '', p.name); h.id = 'd-title'; t.appendChild(h); t.appendChild(el('p', 'dd', p.desc));
+    var dl = el('dl'); function pair(a, b) { dl.appendChild(el('dt', '', a)); dl.appendChild(el('dd', '', b)); }
+    pair('Your logo', p.logo); pair('Good for', p['for'].map(function (a) { return AUD[a]; }).join(', ')); pair('Minimum', p.min ? 'Order as few as ' + p.min : 'Confirmed in your quote'); pair('Price', p.from_price ? 'From ' + p.from_price + ', delivered' : 'One delivered price in your quote'); t.appendChild(dl);
+    var cur = list.filter(function (l) { return l.id === p.id; })[0];
+    var lab = el('label', 'f'); lab.appendChild(el('span', 'fl', 'Quantity (rough is fine)')); var q = el('input'); q.type = 'number'; q.min = '1'; q.inputMode = 'numeric'; q.value = cur ? cur.qty : 100; lab.appendChild(q); t.appendChild(lab);
+    var go = el('button', 'btn', cur ? 'Update quantity' : 'Add to quote'); go.type = 'button';
+    go.addEventListener('click', function () { var v = Math.max(1, parseInt(q.value, 10) || 1); if (inList(p.id)) { list.filter(function (l) { return l.id === p.id; })[0].qty = v; sync(); toast('Updated ' + p.name, 'View list', openDrawer); } else { toggle(p.id, v); } $('detail').close(); });
+    t.appendChild(go); t.appendChild(el('p', 'fine', 'Photos show the type of product. Your proof shows exactly what we will make.')); host.appendChild(t);
+    $('detail').showModal();
+  }
+  /* quote form */
+  var form = $('quote-form'), RULES = { 'q-name': 'Add your name.', 'q-biz': 'Add your business name.', 'q-email': 'Add an email we can reply to.' };
+  function check(id) {
+    var f = $(id), err = $(id + '-err'), v = f.value.trim(), ok, msg = RULES[id];
+    if (id === 'q-what') { ok = list.length > 0 || v !== ''; msg = 'Add a product from the catalog, or tell us what you want made.'; }
+    else if (id === 'q-email') { ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); if (v && !ok) msg = 'That email looks incomplete. Check it has an @ and a domain.'; }
+    else ok = v !== '';
+    f.setAttribute('aria-invalid', ok ? 'false' : 'true'); err.textContent = ok ? '' : msg; f.classList.toggle('ok', ok && v !== ''); return ok;
+  }
+  ['q-name', 'q-biz', 'q-email', 'q-what'].forEach(function (id) {
+    var f = $(id);
+    f.addEventListener('blur', function () { if (f.value.trim() || id !== 'q-what') check(id); });
+    f.addEventListener('input', function () { if (f.getAttribute('aria-invalid') === 'true') check(id); else if (f.classList.contains('ok')) check(id); });
+  });
+  try { $('q-date').min = new Date().toISOString().slice(0, 10); } catch (e) {}
+  function refNo() { var d = new Date(), p = function (n) { return (n < 10 ? '0' : '') + n; }; return 'OL-' + String(d.getFullYear()).slice(2) + p(d.getMonth() + 1) + p(d.getDate()) + '-' + Math.random().toString(36).slice(2, 6).toUpperCase(); }
+  function message(ref) {
+    var val = function (id) { return $(id).value.trim(); }, out = ['Quote request ' + ref, '', 'Name: ' + val('q-name'), 'Business: ' + val('q-biz'), 'Email: ' + val('q-email'), 'Needed by: ' + (val('q-date') || 'not given'), ''];
+    if (list.length) { out.push('Products:'); list.forEach(function (l) { out.push('- ' + byId[l.id].name + ' x ' + l.qty); }); out.push(''); }
+    if (val('q-what')) out.push('Notes: ' + val('q-what'));
+    return out.join('\n');
+  }
+  function done(ref, sent, text) {
+    $('toast').hidden = true; clearTimeout(toastT); form.hidden = true; var c = $('confirm'); c.hidden = false; $('c-ref').textContent = ref;
+    $('c-title').textContent = sent ? 'Request received' : 'One last step: send it';
+    $('c-sent').hidden = !sent; $('c-handoff').hidden = sent;
+    if (!sent) { $('c-mail').href = 'mailto:' + INBOX + '?subject=' + encodeURIComponent('Quote request ' + ref + ' from ' + $('q-biz').value.trim()) + '&body=' + encodeURIComponent(text); $('c-text').value = text; }
+    c.focus(); c.scrollIntoView({ block: 'center' });
+    if (sent) { list = []; sync(); }
+  }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if ($('q-hp').value) return;
+    var bad = ['q-name', 'q-biz', 'q-email', 'q-what'].filter(function (id) { return !check(id); });
+    if (bad.length) { $(bad[0]).focus(); return; }
+    var ref = refNo(), text = message(ref), btn = $('q-send');
+    if (!ENDPOINT) { done(ref, false, text); return; }
+    btn.disabled = true; btn.textContent = 'Sending…';
+    fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify({ _subject: 'Quote request ' + ref + ' from ' + $('q-biz').value.trim(), _replyto: $('q-email').value.trim(), email: $('q-email').value.trim(), message: text }) })
+      .then(function (r) { if (!r.ok) throw new Error('send failed'); return r.json(); })
+      .then(function (d) { if (String(d.success) !== 'true') throw new Error('not delivered'); done(ref, true, text); })
+      .catch(function () { done(ref, false, text); })
+      .then(function () { btn.disabled = false; btn.textContent = 'Request my quote'; });
+  });
+  $('c-copy').addEventListener('click', function () {
+    var t = $('c-text'), b = this; t.select();
+    var ok = function () { b.textContent = '✓ Copied'; setTimeout(function () { b.textContent = 'Copy the request'; }, 2500); };
+    try { if (navigator.clipboard) navigator.clipboard.writeText(t.value).then(ok, function () { document.execCommand('copy'); ok(); }); else { document.execCommand('copy'); ok(); } } catch (e) {}
+  });
+  $('c-new').addEventListener('click', function () { list = []; sync(); form.reset(); ['q-name', 'q-biz', 'q-email', 'q-what'].forEach(function (id) { var f = $(id); f.removeAttribute('aria-invalid'); f.classList.remove('ok'); $(id + '-err').textContent = ''; }); $('confirm').hidden = true; form.hidden = false; document.getElementById('catalog').scrollIntoView(); });
+  /* wiring */
+  var qt; $('q').addEventListener('input', function () { syncX(); clearTimeout(qt); qt = setTimeout(function () { state.q = $('q').value.trim(); draw(); }, 90); });
+  $('q-x').addEventListener('click', function () { $('q').value = ''; state.q = ''; syncX(); draw(); $('q').focus(); });
+  $('empty-clear').addEventListener('click', clearAll);
+  $('empty-ask').addEventListener('click', function () { if (state.q) { $('q-what').value = 'Looking for: ' + state.q; check('q-what'); } document.getElementById('quote').scrollIntoView(); $('q-name').focus({ preventScroll: true }); });
+  $('open-list').addEventListener('click', openDrawer);
+  $('drawer-close').addEventListener('click', function () { $('drawer').close(); });
+  $('drawer-browse').addEventListener('click', function () { $('drawer').close(); document.getElementById('catalog').scrollIntoView(); });
+  $('drawer-go').addEventListener('click', function () { $('drawer').close(); document.getElementById('quote').scrollIntoView(); $('q-name').focus({ preventScroll: true }); });
+  $('d-close').addEventListener('click', function () { $('detail').close(); });
+  closeOnBackdrop($('drawer')); closeOnBackdrop($('detail'));
+  try { var u = new URLSearchParams(location.search), f = u.get('for'), q = u.get('q'); if (f && AUD[f]) state.aud[f] = true; if (q) { state.q = q; $('q').value = q; syncX(); } } catch (e) {}
+  try { $('yr').textContent = String(new Date().getFullYear()); } catch (e) {}
+  shelves(); draw(); sync();
+})();
+</script>
+
+</body></html>
